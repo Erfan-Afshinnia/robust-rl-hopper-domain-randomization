@@ -169,11 +169,11 @@ These results describe the configurations tested so far; they should not be inte
 
 ### PPO Baseline Comparison
 
-![PPO baseline comparison](Bar%20Plots/ppo_baselines_barplot.png)
+
 
 ### SAC Robustness Comparison
 
-![SAC robustness comparison](Bar%20Plots/sac_robustness_barplot.png)
+
 
 ### Simulation Demonstration
 
