@@ -3,6 +3,7 @@
 A reinforcement learning study of **robust control under dynamics mismatch** using a custom MuJoCo Hopper environment.
 
 The project investigates how policies trained in one simulated domain transfer to another domain with different physical dynamics, and whether **domain randomization** improves transfer robustness. It combines from-scratch policy-gradient implementations in PyTorch with PPO and SAC baselines from Stable-Baselines3.
+
 Built on the MLDL 2025 course starter code (lambdavi/rl_mldl_25, MIT license).
 
 ## Research Question
