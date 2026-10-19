@@ -171,7 +171,7 @@ class CustomHopper(MujocoEnv, EzPickle):
             )
             self.set_parameters(masses)
 
-        elif self.domain in ("udr", "massdr"):
+        elif self.domain in ("udr", "massdr"):  # "massdr" is an alias of "udr"
             self.set_random_parameters()
 
         elif self.domain == "frictiondr":
