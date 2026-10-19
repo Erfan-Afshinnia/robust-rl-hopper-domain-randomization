@@ -264,7 +264,7 @@ _ENVIRONMENTS = {
     "CustomHopper-source-v0": "source",
     "CustomHopper-target-v0": "target",
     "CustomHopper-udr-v0": "udr",
-    "CustomHopper-massdr-v0": "massdr",
+    "CustomHopper-massdr-v0": "massdr",   # alias of udr; identical behavior
     "CustomHopper-frictiondr-v0": "frictiondr",
     "CustomHopper-dampingdr-v0": "dampingdr",
     "CustomHopper-extdr-v0": "extdr",
