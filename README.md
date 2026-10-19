@@ -184,7 +184,7 @@ The repository includes an animation of a trained Hopper policy in a randomized 
 ## Repository Structure
 
 ```text
-rl_mldl_25/
+robust-rl-hopper-domain-randomization/
 |-- agent.py
 |-- train.py
 |-- train_sb3.py
