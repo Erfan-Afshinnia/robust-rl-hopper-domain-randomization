@@ -205,8 +205,6 @@ robust-rl-hopper-domain-randomization/
 |   |-- experiment_summary.md
 |   |-- custom policy-gradient training/evaluation CSVs
 |   `-- sb3_eval/ (50-episode evaluation CSVs)
-|-- Bar Plots/
-|-- GIF/
 |-- requirements.txt
 |-- requirements-dev.txt
 `-- README.md
