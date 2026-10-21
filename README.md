@@ -169,11 +169,6 @@ These results describe the configurations tested so far; they should not be inte
 Evaluation uses 50 deterministic episodes per environment and one training run per policy. PPO was trained on the source domain only; the target-trained reference is SAC.
 
 
-### PPO Baseline Comparison
-
-
-
-### SAC Robustness Comparison
 
 
 
