@@ -58,7 +58,7 @@ The observation contains 11 values: five position coordinates and six velocity c
 
 ## Installation
 
-The working environment used for smoke tests was **Python 3.11.9 on Windows**. The pins in `requirements.txt` reflect the package versions tested in that environment.
+The working environment used for “Developed and tested on Python 3.11.9 on Windows. The pins in `requirements.txt` reflect the package versions tested in that environment.
 
 From the repository root, open PowerShell and run:
 
