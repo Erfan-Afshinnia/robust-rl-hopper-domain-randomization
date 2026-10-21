@@ -207,8 +207,9 @@ robust-rl-hopper-domain-randomization/
 |   `-- sb3_eval/ (50-episode evaluation CSVs)
 |-- requirements.txt
 |-- requirements-dev.txt
-`-- README.md
-```
+|-- README.md
+|-- LICENSE
+|-- .gitignore
 ## Development and Tests
 
 Install the runtime and development dependencies in your virtual environment:
