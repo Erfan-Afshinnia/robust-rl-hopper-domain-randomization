@@ -181,7 +181,6 @@ Evaluation uses 50 deterministic episodes per environment and one training run p
 
 The repository includes an animation of a trained Hopper policy in a randomized environment.
 
-![UDR Hopper simulation](GIF/hopper_udr_best.gif)
 
 ## Repository Structure
 
