@@ -46,9 +46,9 @@ The environment uses Gymnasium and the official MuJoCo Python bindings.
 | `CustomHopper-source-v0` | Source dynamics |
 | `CustomHopper-target-v0` | Target dynamics |
 | `CustomHopper-udr-v0` | Uniform randomization of the three non-torso body masses (thigh, leg, foot), ±30% around the source values. The torso stays at source mass. This is the mass-only condition |
-| `CustomHopper-frictiondr-v0` | Friction-only randomization (Implemented)|
-| `CustomHopper-dampingdr-v0` | Damping-only randomization (Implemented)|
-| `CustomHopper-extdr-v0` | Mass, damping, friction, and action noise (Implemented)|
+| `CustomHopper-frictiondr-v0` | Friction-only randomization (implemented, not yet evaluated)|
+| `CustomHopper-dampingdr-v0` | Damping-only randomization (implemented, not yet evaluated)|
+| `CustomHopper-extdr-v0` | Mass, damping, friction, and action noise (implemented, not yet evaluated)|
 
 `CustomHopper-massdr-v0` is registered as an alias of `udr` (identical behavior) so older scripts keep working.
 
