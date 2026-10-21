@@ -241,8 +241,7 @@ The test suite checks the MuJoCo XML, all thirteen registered environment varian
 
 - The experiments concern **sim-to-sim transfer**, not real-world deployment or sim-to-real transfer.
 - The migrated environment uses Gymnasium's reset and step interfaces and the official MuJoCo Python bindings.
-- The converted XML's key physical properties were compared with the legacy model, and short simulation rollouts were close but not identical. Long-term trajectory equivalence has not been established.
-- Short smoke tests verified that the environment variants, custom training algorithms, PPO, SAC, and policy evaluation execute with the migrated setup. These checks do not establish convergence or benchmark-quality performance.
+- Tests verify the model dimensions, timestep and control range, and that every registered environment resets and steps. Equivalence with the original legacy model has not been verified.
 - The hyperparameter-search results are partial and use two random seeds per configuration.
 
 ## Tech Stack
