@@ -246,6 +246,12 @@ The test suite checks the MuJoCo XML, all thirteen registered environment varian
 - Tests verify the model dimensions, timestep and control range, and that every registered environment resets and steps. Equivalence with the original legacy model has not been verified.
 - The hyperparameter-search results are partial and use two random seeds per configuration.
 
+## Not Yet Done
+
+- Friction-only, damping-only and extended-DR evaluations (environments implemented).
+- Multiple training seeds for the main comparisons.
+- The hyperparameter search ran in a notebook that is not included; its results are in `hparam_search/`.
+
 ## Tech Stack
 
 **Python, PyTorch, NumPy, Gymnasium, MuJoCo, Stable-Baselines3, PPO, SAC, REINFORCE, Actor-Critic, Domain Randomization**
