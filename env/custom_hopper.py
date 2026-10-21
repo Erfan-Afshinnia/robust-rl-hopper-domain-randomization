@@ -23,7 +23,7 @@ class CustomHopper(MujocoEnv, EzPickle):
     """Hopper with source, target, and randomized physics domains."""
 
     VALID_DOMAINS = {
-        None, "source", "target", "udr", "massdr", "transferdr",
+        None, "source", "target", "udr", "massdr", "transferdr", "torsodr",
         "frictiondr", "dampingdr", "extdr",
     }
 
@@ -57,6 +57,10 @@ class CustomHopper(MujocoEnv, EzPickle):
 
         self.source_masses = self.target_masses.copy()
         self.source_masses[0] *= 0.7
+
+        # Torso range defined relative to the source mass only (no target information).
+        self.torso_scale_low = 0.5
+        self.torso_scale_high = 1.5
 
         scale = 0.3
         self.udr_low = self.source_masses[1:] * (1.0 - scale)
@@ -164,10 +168,20 @@ class CustomHopper(MujocoEnv, EzPickle):
             self.set_parameters(self.source_masses)
 
         elif self.domain == "transferdr":
-            # Randomize torso mass across the source-to-target interval.
+            # Oracle-range variant: torso sampled across the source-to-target interval.
             masses = self.target_masses.copy()
             masses[0] = rng.uniform(
                 self.source_masses[0], self.target_masses[0]
+            )
+            self.set_parameters(masses)
+
+
+        elif self.domain == "torsodr":
+            # Leakage-free variant: torso range set relative to the source mass only.
+            masses = self.source_masses.copy()
+            masses[0] = rng.uniform(
+                self.torso_scale_low * self.source_masses[0],
+                self.torso_scale_high * self.source_masses[0],
             )
             self.set_parameters(masses)
 
@@ -305,4 +319,18 @@ for env_id, domain in (
             entry_point="env.custom_hopper:CustomHopper",
             max_episode_steps=500,
             kwargs={"domain": domain, "reward_mode": "posture_height"},
+        )
+
+# Leakage-free 2x2 ablation of torso randomization and reward shaping.
+for env_id, domain, reward_mode in (
+    ("CustomHopper-torsodr-v0", "torsodr", "standard"),
+    ("CustomHopper-source-heightposture-v0", "source", "posture_height"),
+    ("CustomHopper-torsodr-heightposture-v0", "torsodr", "posture_height"),
+):
+    if env_id not in registry:
+        register(
+            id=env_id,
+            entry_point="env.custom_hopper:CustomHopper",
+            max_episode_steps=500,
+            kwargs={"domain": domain, "reward_mode": reward_mode},
         )

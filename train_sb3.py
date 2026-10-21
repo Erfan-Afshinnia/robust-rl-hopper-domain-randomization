@@ -1,6 +1,7 @@
 """Train and evaluate PPO or SAC on the custom Hopper environments."""
 
 import argparse
+from pathlib import Path
 
 import gymnasium as gym
 from env import custom_hopper  # Registers the custom environments.
@@ -153,7 +154,7 @@ def parse_args():
     )
     parser.add_argument(
         "--eval-episodes", type=int, default=50,
-        help="Number of episodes for each evaluation.",
+        help="Episodes per built-in evaluation; 0 skips it.",
     )
     parser.add_argument(
         "--learning-rate", type=float, default=None,
@@ -162,6 +163,10 @@ def parse_args():
     parser.add_argument(
         "--batch-size", type=int, default=None,
         help="Optional SAC batch size; omitted uses the SB3 default.",
+    )
+    parser.add_argument(
+        "--save-path", type=str, default=None,
+        help="Model path without .zip; default keeps <algo>_hopper_<suffix>.",
     )
     return parser.parse_args()
 
@@ -175,6 +180,8 @@ def main():
         raise ValueError("--learning-rate must be greater than zero.")
     if args.batch_size is not None and args.batch_size <= 0:
         raise ValueError("--batch-size must be greater than zero.")
+    if args.eval_episodes < 0:
+        raise ValueError("--eval-episodes must be zero or positive.")
 
     trainers = {"ppo": train_ppo, "sac": train_sac}
     trainer = trainers[args.algo]
@@ -197,13 +204,15 @@ def main():
         args.train_env.replace("CustomHopper-", "").replace("-v0", "")
         or "default"
     )
-    save_name = f"{args.algo}_hopper_{suffix}"
+    save_name = args.save_path or f"{args.algo}_hopper_{suffix}"
+    Path(save_name).parent.mkdir(parents=True, exist_ok=True)
     print(f"\nSaving model to: {save_name}.zip")
     model.save(save_name)
 
     try:
-        evaluate_on_env(model, args.train_env, n_episodes=args.eval_episodes)
-        evaluate_on_env(model, args.test_env, n_episodes=args.eval_episodes)
+        if args.eval_episodes > 0:
+            evaluate_on_env(model, args.train_env, n_episodes=args.eval_episodes)
+            evaluate_on_env(model, args.test_env, n_episodes=args.eval_episodes)
     finally:
         if model.get_env() is not None:
             model.get_env().close()
