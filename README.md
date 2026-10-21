@@ -52,7 +52,7 @@ The environment uses Gymnasium and the official MuJoCo Python bindings.
 
 `CustomHopper-massdr-v0` is registered as an alias of `udr` (identical behavior) so older scripts keep working.
 
-The extended randomization condition combines mass randomization with multiplicative damping and friction changes and Gaussian action noise. Friction-only and damping-only environments are implemented but have not been evaluated yet.
+The extended randomization condition combines mass randomization with multiplicative damping and friction changes and Gaussian action noise. Friction-only, damping-only and extended-DR environments are implemented but have not been evaluated yet.
 
 The observation contains 11 values: five position coordinates and six velocity coordinates. The action space contains three continuous controls bounded between -1 and 1. Registered environments have a maximum episode length of 500 steps.
 
