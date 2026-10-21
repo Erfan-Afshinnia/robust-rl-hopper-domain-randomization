@@ -166,6 +166,8 @@ The best-performing tested configuration by mean return was:
 These results describe the configurations tested so far; they should not be interpreted as an exhaustive search or a guarantee of performance in other conditions. The result tables are in `hparam_search/`.
 
 ## Results and Visualizations
+Evaluation uses 50 deterministic episodes per environment and one training run per policy. PPO was trained on the source domain only; the target-trained reference is SAC.
+
 
 ### PPO Baseline Comparison
 
