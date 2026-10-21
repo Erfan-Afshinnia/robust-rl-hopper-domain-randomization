@@ -148,7 +148,6 @@ The project investigates:
 - Source-to-target zero-shot transfer.
 - Target-to-target reference performance.
 - Transfer robustness under domain randomization.
-- Mass, friction, and damping ablations.
 - SAC hyperparameter sensitivity across multiple random seeds.
 
 ### SAC Hyperparameter Search
