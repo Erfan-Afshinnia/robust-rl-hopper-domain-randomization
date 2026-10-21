@@ -146,7 +146,7 @@ The project investigates:
 
 - Source-to-source performance.
 - Source-to-target zero-shot transfer.
-- Target-to-target reference performance.
+- Target-to-target reference performance (SAC).
 - Transfer robustness under domain randomization.
 - SAC hyperparameter sensitivity across multiple random seeds.
 
