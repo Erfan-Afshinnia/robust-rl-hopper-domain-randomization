@@ -168,6 +168,16 @@ These results describe the configurations tested so far; they should not be inte
 ## Results and Visualizations
 Evaluation uses 50 deterministic episodes per environment and one training run per policy. PPO was trained on the source domain only; the target-trained reference is SAC.
 
+| Policy (training env) | Source | Target |
+|---|---:|---:|
+| PPO (source) | 1466.5 ± 119.4 | 1524.5 ± 106.5 |
+| SAC (source, default backup) | 1007.6 ± 32.3 | 686.6 ± 2.6 |
+| SAC (source, current model) | 663.3 ± 66.9 | 689.4 ± 113.0 |
+| SAC (target, reference) | 1178.2 ± 19.8 | 1284.8 ± 15.9 |
+| SAC + UDR | 1208.6 ± 177.0 | 901.4 ± 25.6 |
+| SAC + torso-mass DR + posture/height reward (`transferdr-heightposture`) | 1402.2 ± 24.6 | 1519.2 ± 30.6 |
+
+Mean ± std of return over 50 deterministic episodes (reset seeds 1000–1049), 200,000 training steps, one training run per row. Std is across episodes, not across training runs. All rows are evaluated on the standard `source`/`target` environments.
 
 
 
