@@ -180,13 +180,6 @@ Evaluation uses 50 deterministic episodes per environment and one training run p
 Mean ± std of return over 50 deterministic episodes (reset seeds 1000–1049), 200,000 training steps, one training run per row. Std is across episodes, not across training runs. All rows are evaluated on the standard `source`/`target` environments.
 
 
-
-
-### Simulation Demonstration
-
-The repository includes an animation of a trained Hopper policy in a randomized environment.
-
-
 ## Repository Structure
 
 ```text
