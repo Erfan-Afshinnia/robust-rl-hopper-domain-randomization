@@ -1,0 +1,28 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local Python environments
+.venv/
+venv/
+
+# Trained models and logs (large; regenerate with the training scripts)
+model.mdl
+*_hopper_*.zip
+ppo_hopper_tb/
+sac_hopper_tb/
+results/*/models/*.zip
+results/*/logs/
+results/smoke/
+
+# Local backup of old experiment files (not published)
+archive/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
